@@ -1,23 +1,25 @@
 import { Stack, Link } from 'expo-router';
-import { YStack } from 'tamagui';
+import { Text, View, XStack, Image } from 'tamagui';
 
 import { Container, Main, Title, Subtitle, Button, ButtonText } from '../tamagui.config';
+import { StatusBar } from 'expo-status-bar';
+
+const PlaceholderImage = require('../assets/images/background-image.png');
 
 export default function Page() {
   return (
-    <Container>
-      <Main>
-        <Stack.Screen options={{ title: 'Overview' }} />
-        <YStack>
-          <Title>Hello World</Title>
-          <Subtitle>This is the first page of your app.</Subtitle>
-        </YStack>
-        <Link href={{ pathname: '/details', params: { name: 'Dan' } }} asChild>
-          <Button>
-            <ButtonText>Show Details</ButtonText>
-          </Button>
-        </Link>
-      </Main>
-    </Container>
+    <View flex={1} backgroundColor={'$background'} alignItems="center">
+      <View flex={1} justifyContent="center" alignItems="center">
+        <Image
+          source={{
+            uri: PlaceholderImage,
+            width: 320,
+            height: 440,
+          }}
+          borderRadius={18}
+        />
+      </View>
+      <StatusBar style="auto" />
+    </View>
   );
 }
